@@ -70,7 +70,10 @@
 h1 {
     margin-left: 2em;
     z-index: 1;
-    text-shadow: #00aaa9 0 0 2px;
+    text-shadow: #70d6d6 0 0 2px;
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 0.125em 0.25em;
+    border-radius: 8px;
 }
 
   h1, h2 {
@@ -161,6 +164,9 @@ form textarea {
   }
   
   @media all and (max-width:600px) {
+    .bg {
+      margin-bottom: .5em;
+    }
     .center {
       flex-direction: column;
       padding: 0.25em;
