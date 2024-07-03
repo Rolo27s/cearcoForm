@@ -61,6 +61,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 h1 {
     margin-left: 2em;
     z-index: 1;
@@ -154,3 +160,20 @@ form textarea {
     color: #721c24;
   }
   
+  @media all and (max-width:600px) {
+    .center {
+      flex-direction: column;
+      padding: 0.25em;
+    }
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content:space-evenly;
+      gap: 1em;
+      width: 100%;
+    }
+
+    .info div p {
+      font-size: 12px;
+    }
+  }
