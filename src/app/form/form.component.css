@@ -15,11 +15,17 @@
     text-decoration: none;
     color: inherit;
   }
-  
-  .flex-container {
+  .max-width-container{
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
   }
   
   .center {
@@ -44,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
+  color: #eee;
 }
 
 h1 {
