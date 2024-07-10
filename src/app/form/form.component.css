@@ -29,7 +29,6 @@
   }
   
   .center {
-    max-width: 1050px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,7 +148,13 @@ form textarea {
     color: #721c24;
   }
   
-  @media all and (max-width:600px) {
+.logo img {
+  width: 100%;
+  opacity: 0.3;
+  border-radius: 2em;
+}
+
+  @media all and (max-width:1300px) {
     .bg {
       margin-bottom: .5em;
     }
@@ -167,5 +172,9 @@ form textarea {
 
     .info div p {
       font-size: 12px;
+    }
+    .logo {
+      width: 50%;
+      padding-top: 2em;
     }
   }

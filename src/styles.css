@@ -6,3 +6,7 @@
     font-family:'Oswald', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
+  body {
+    background: linear-gradient(to right, #05090C, #373946, #05090C);
+    padding-bottom: .15em;
+  }
