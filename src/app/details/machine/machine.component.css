@@ -1,0 +1,25 @@
+h3, p {
+    max-width: 75ch;
+    color: #555;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin: 0.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+img {
+    width: 100%;
+    margin: 1em;
+}
+
+.flex-container:hover {
+    filter: brightness(0.65);
+}

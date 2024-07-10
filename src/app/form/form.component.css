@@ -16,27 +16,6 @@
     color: inherit;
   }
   
-  /* specific styles for form component */
-  .bg {
-    width: 100%;
-    height: 213.3px;
-    background: url(https://www.cearco.es/wp-content/uploads/2021/11/bg.svg);
-    position: relative;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-bottom: 2em; /* added margin to separate from next section */
-  }
-  
-  .imgForm {
-    width: 400px;
-    height: 100%;
-    background-image: url(/assets/maquina.png);
-    background-size: cover;
-    position: absolute;
-    right: 0;
-  }
-  
   .flex-container {
     display: flex;
     justify-content: center;

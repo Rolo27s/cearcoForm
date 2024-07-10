@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { CommonModule } from '@angular/common';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-form',
@@ -10,12 +11,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   form: FormGroup;
   successMessage: string | null = null;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private sharedService: SharedService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -23,6 +24,12 @@ export class FormComponent {
       machine: ['', Validators.required],
       content: [''],
       agree: [false, Validators.requiredTrue]
+    });
+  }
+
+  ngOnInit(): void {
+    this.sharedService.selectedMachine$.subscribe((machine) => {
+      this.form.patchValue({ machine });
     });
   }
 

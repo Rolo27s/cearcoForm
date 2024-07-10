@@ -1,87 +1,148 @@
-<div class="bg">
-    <h1>Reserva tu servicio</h1>
-    <div class="imgForm"></div>
-  </div>
-  <div class="flex-container">
-    <div class="center">
-      <div class="form">
-        <div class="bg2"></div>
-        <h2>
-          Envíanos
-          <span class="aqua">&nbsp;un mensaje</span>
-        </h2>
-        <p class="form-text-description">
-          Envíe el siguiente formulario para solicitar el alquiler de nuestras máquinas
-        </p>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div [ngClass]="{'error': name?.invalid && (name?.dirty || name?.touched)}">
-            <input type="text" formControlName="name" placeholder="Nombre y apellidos*" required />
-            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-message">
-              <small *ngIf="name?.errors?.['required']">Nombre y apellidos son requeridos.</small>
-            </div>
+<div class="flex-container" id="form-section">
+  <div class="center">
+    <div class="form">
+      <div class="bg2"></div>
+      <h2>
+        Envíanos
+        <span class="aqua">&nbsp;un mensaje</span>
+      </h2>
+      <p class="form-text-description">
+        Envíe el siguiente formulario para solicitar el alquiler de nuestras
+        máquinas
+      </p>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div
+          [ngClass]="{ error: name?.invalid && (name?.dirty || name?.touched) }"
+        >
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Nombre y apellidos*"
+            required
+          />
+          <div
+            *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+            class="error-message"
+          >
+            <small *ngIf="name?.errors?.['required']"
+              >Nombre y apellidos son requeridos.</small
+            >
           </div>
-          <div [ngClass]="{'error': email?.invalid && (email?.dirty || email?.touched)}">
-            <input type="email" formControlName="email" placeholder="Email*" required />
-            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
-              <small *ngIf="email?.errors?.['required']">El email es requerido.</small>
-              <small *ngIf="email?.errors?.['email']">Formato de email no válido.</small>
-            </div>
+        </div>
+        <div
+          [ngClass]="{
+            error: email?.invalid && (email?.dirty || email?.touched)
+          }"
+        >
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email*"
+            required
+          />
+          <div
+            *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+            class="error-message"
+          >
+            <small *ngIf="email?.errors?.['required']"
+              >El email es requerido.</small
+            >
+            <small *ngIf="email?.errors?.['email']"
+              >Formato de email no válido.</small
+            >
           </div>
-          <div>
-            <input type="text" formControlName="telf" placeholder="Teléfono" />
+        </div>
+        <div>
+          <input type="text" formControlName="telf" placeholder="Teléfono" />
+        </div>
+        <div
+          [ngClass]="{
+            error: machine?.invalid && (machine?.dirty || machine?.touched)
+          }"
+        >
+          <select formControlName="machine" required>
+            <option value="" disabled selected>Máquinas disponibles *</option>
+            <option value="Golpe de prensa">Golpe de prensa</option>
+            <option value="Pantógrafo">Pantógrafo</option>
+            <option value="Pintura líquida">Pintura líquida</option>
+            <option value="Pintura en polvo">Pintura en polvo</option>
+            <option value="Plegadora">Plegadora</option>
+            <option value="Soldadura">Soldadura</option>
+          </select>
+          <div
+            *ngIf="machine?.invalid && (machine?.dirty || machine?.touched)"
+            class="error-message"
+          >
+            <small *ngIf="machine?.errors?.['required']"
+              >Seleccione una máquina.</small
+            >
           </div>
-          <div [ngClass]="{'error': machine?.invalid && (machine?.dirty || machine?.touched)}">
-            <select formControlName="machine" required>
-              <option value="" disabled selected>Máquinas disponibles *</option>
-              <option value="Golpe de prensa">Golpe de prensa</option>
-              <option value="Pantógrafo">Pantógrafo</option>
-              <option value="Pintura líquida">Pintura líquida</option>
-              <option value="Pintura en polvo">Pintura en polvo</option>
-              <option value="Plegadora">Plegadora</option>
-              <option value="Soldadura">Soldadura</option>
-            </select>
-            <div *ngIf="machine?.invalid && (machine?.dirty || machine?.touched)" class="error-message">
-              <small *ngIf="machine?.errors?.['required']">Seleccione una máquina.</small>
-            </div>
+        </div>
+        <div>
+          <textarea
+            formControlName="content"
+            placeholder="¿Qué necesita?"
+          ></textarea>
+        </div>
+        <div
+          [ngClass]="{
+            error: agree?.invalid && (agree?.dirty || agree?.touched)
+          }"
+          class="legal"
+        >
+          <input type="checkbox" formControlName="agree" required />
+          <label for="agree">
+            He leído y acepto la
+            <a href="https://www.cearco.es/politica-de-privacidad/" class="aqua"
+              >política de privacidad</a
+            >
+          </label>
+          <div
+            *ngIf="agree?.invalid && (agree?.dirty || agree?.touched)"
+            class="error-message"
+          >
+            <small *ngIf="agree?.errors?.['requiredTrue']"
+              >Debe aceptar la política de privacidad.</small
+            >
           </div>
-          <div>
-            <textarea formControlName="content" placeholder="¿Qué necesita?"></textarea>
-          </div>
-          <div [ngClass]="{'error': agree?.invalid && (agree?.dirty || agree?.touched)}" class="legal">
-            <input type="checkbox" formControlName="agree" required />
-            <label for="agree">
-              He leído y acepto la
-              <a href="https://www.cearco.es/politica-de-privacidad/" class="aqua">política de privacidad</a>
-            </label>
-            <div *ngIf="agree?.invalid && (agree?.dirty || agree?.touched)" class="error-message">
-              <small *ngIf="agree?.errors?.['requiredTrue']">Debe aceptar la política de privacidad.</small>
-            </div>
-          </div>
-          <input type="submit" value="ENVIAR" />
-        </form>
-        <div *ngIf="successMessage" class="message success">{{ successMessage }}</div>
-        <div *ngIf="errorMessage" class="message error">{{ errorMessage }}</div>
+        </div>
+        <input type="submit" value="ENVIAR" />
+      </form>
+      <div *ngIf="successMessage" class="message success">
+        {{ successMessage }}
       </div>
-      <div class="info">
-        <div class="info-a">
-          <a target="_blank" rel="nofollow noopener" href="https://goo.gl/maps/jvM3kT3ngsKn8PLs7">
-            <img src="/assets/ubicacion.png" alt="ubicacion" />
-          </a>
-          <p>C/ Rosa de los Vientos, 32 <br> P.I. El Viso 29006 Málaga</p>
-        </div>
-        <div class="info-b">
-          <a target="_blank" rel="nofollow noopener" href="tel:+34952333150">
-            <img src="/assets/telf.png" alt="telefono" />
-          </a>
-          <p>952 333 150</p>
-        </div>
-        <div class="info-c">
-          <a target="_blank" rel="nofollow noopener" href="mailto:cearco@cearco.es">
-            <img src="/assets/correo.png" alt="correo" />
-          </a>
-          <p>cearco&#64;cearco.es</p>
-        </div>
+      <div *ngIf="errorMessage" class="message error">{{ errorMessage }}</div>
+    </div>
+    <div class="info">
+      <div class="info-a">
+        <a
+          target="_blank"
+          rel="nofollow noopener"
+          href="https://goo.gl/maps/jvM3kT3ngsKn8PLs7"
+        >
+          <img src="/assets/ubicacion.png" alt="ubicacion" />
+        </a>
+        <p>
+          C/ Rosa de los Vientos, 32 <br />
+          P.I. El Viso 29006 Málaga
+        </p>
+      </div>
+      <div class="info-b">
+        <a target="_blank" rel="nofollow noopener" href="tel:+34952333150">
+          <img src="/assets/telf.png" alt="telefono" />
+        </a>
+        <p>952 333 150</p>
+      </div>
+      <div class="info-c">
+        <a
+          target="_blank"
+          rel="nofollow noopener"
+          href="mailto:cearco@cearco.es"
+        >
+          <img src="/assets/correo.png" alt="correo" />
+        </a>
+        <p>cearco&#64;cearco.es</p>
       </div>
     </div>
   </div>
-  
+</div>
